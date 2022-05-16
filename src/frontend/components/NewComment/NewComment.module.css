@@ -1,0 +1,51 @@
+.container{
+    gap:1rem;
+    margin-top: 1rem;
+    min-height: 2rem;
+    width: 100%;
+    /* border: 1px solid; */
+}
+
+.container img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.comment_input{
+    border: 1px solid;
+    background-color: white;
+    width: calc(100% - 3rem);
+    border-radius: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+    position: relative;
+}
+
+.input_area{
+    /* border: 1px solid; */
+    width: 95%;
+    height: 100%;
+    height: auto;
+    outline: none;
+    padding: 0.255rem;
+}
+
+
+.input_area:empty::before{
+    content: attr(data-placeholder);
+}
+
+.comment_input img{
+    margin: 0;
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    width: 1rem;
+    height: auto;
+}
+
+.comment_input img:hover{
+    cursor: pointer;
+}
+
