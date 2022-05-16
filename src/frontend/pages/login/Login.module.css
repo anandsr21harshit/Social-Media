@@ -1,8 +1,86 @@
-.container{
-    min-height: 100vh;
-}
-.main{
-    display: flex;
-    flex-direction: column;
+.wrapper {
+    justify-content: center;
     align-items: center;
+    margin: 8rem 0;
+}
+
+.wrapper img {
+  display: none;
+}
+.container {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.main {
+  flex-direction: column;
+  align-items: center;
+  min-width: 20rem;
+}
+
+.brand h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+}
+
+.main input {
+  width: 75%;
+  margin: 1rem;
+  height: 2rem;
+  border: 0.5px solid var(--bg-secondary);
+  border-radius: 0.2rem;
+  outline: none;
+  padding: 0.8rem;
+}
+
+.h_line {
+  background-color: var(--bg-secondary);
+  height: 1px;
+  width: 5rem;
+  position: relative;
+  top: 0.8rem;
+  margin: 0 0.5rem;
+}
+
+.login_btn {
+  width: 75%;
+  margin: 1.6rem;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+}
+.footer {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+}
+
+.footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--bg-primary);
+}
+
+.chips {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 4rem;
+  color: var(--bg-secondary);
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 500px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 950px) {
+    .wrapper img{
+        display: inline-block;
+        width: 500px;
+        height: auto;
+    }
 }
