@@ -1,0 +1,23 @@
+.container{
+    background-color: var(--bg-light);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 3.5rem;
+    border-top: 2px solid var(--bg-dark);
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    align-items: center;
+}
+
+.container img{
+    width: 1.6rem;
+    height: 1.6rem;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 31.25rem) {   /*500px*/
+    .container{
+        display: none;
+    }
+}

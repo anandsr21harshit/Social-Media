@@ -1,0 +1,68 @@
+.nav_container{
+    background-color: white;
+    border-bottom: 1px solid var(--bg-light);
+    border-radius: 0;
+    margin: 0;
+    padding: 1rem;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    align-items: center;
+}
+
+.nav_container img{
+    width: 2rem;
+    height: auto;
+}
+
+.nav_brand{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+}
+
+.desktop_menu{
+    display: none;
+}
+
+@media screen and (min-width: 31.25rem) {    /*500px*/
+    .desktop_menu{
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 2rem;
+        margin-left: 1rem;
+    }
+    .desktop_menu img{
+        width: 1.2rem;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 32.5rem) {  /*520px*/
+    .desktop_menu{
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 2rem;
+        margin-left: 2rem;
+    }
+    .desktop_menu img{
+        width: 1.3rem;
+        height: auto;
+    }
+}
+@media screen and (min-width: 36.25rem) {   /*580px*/
+    .desktop_menu{
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 2rem;
+        margin-left: 5rem;
+    }
+    .desktop_menu img{
+        width: 1.3rem;
+        height: auto;
+    }
+}

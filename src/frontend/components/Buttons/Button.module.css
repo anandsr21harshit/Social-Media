@@ -1,0 +1,11 @@
+.container{
+    gap: 1rem;
+}
+
+.items i{
+    margin-right: 0.5rem;
+}
+
+.items:hover{
+    cursor: pointer;
+}
