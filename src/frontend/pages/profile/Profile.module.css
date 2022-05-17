@@ -5,9 +5,9 @@
     gap: 2rem;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 31.25rem) {   /*500px*/
     .container{
         margin: 5rem auto;
-        max-width: 500px;
+        max-width: 31.25rem;
     }
 }

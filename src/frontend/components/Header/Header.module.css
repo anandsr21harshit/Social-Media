@@ -1,5 +1,3 @@
-/* reset css  */
-
 .nav_container{
     background-color: white;
     border-bottom: 1px solid var(--bg-light);
@@ -28,7 +26,7 @@
     display: none;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 31.25rem) {    /*500px*/
     .desktop_menu{
         display: flex;
         align-items: center;
@@ -42,7 +40,7 @@
     }
 }
 
-@media screen and (min-width: 520px) {
+@media screen and (min-width: 32.5rem) {  /*520px*/
     .desktop_menu{
         display: flex;
         align-items: center;
@@ -55,7 +53,7 @@
         height: auto;
     }
 }
-@media screen and (min-width: 580px) {
+@media screen and (min-width: 36.25rem) {   /*580px*/
     .desktop_menu{
         display: flex;
         align-items: center;

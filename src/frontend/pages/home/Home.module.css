@@ -4,9 +4,9 @@
     align-items: center;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 31.25rem) { /*500*/
     .container{
-        max-width: 500px;
+        max-width: 31.25rem;
         margin: 5rem auto;
     }
 }
