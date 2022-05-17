@@ -4,7 +4,6 @@ import ProfileCardCSS from "./ProfileCard.module.css"
 import linkedin from "../../assets/linkedin.png"
 import github from "../../assets/github.png"
 import twitter from "../../assets/twitter.png"
-// import { PostCard } from '../PostCard/PostCard'
 
 function ProfileCard() {
   return (
@@ -21,7 +20,7 @@ function ProfileCard() {
             <li>5 Followers</li>
             <li>2 Following</li>
         </ul>
-        <a href="https://www.linkedin.com/in/hanand2021" target={"_blank"} className={ProfileCardCSS.social_media}>
+        <a href="https://www.linkedin.com/in/hanand2021" target="_blank" className={ProfileCardCSS.social_media}>
             <img src={linkedin} alt="linkedin icon" />
             <img src={github} alt="github icon" />
             <img src={twitter} alt="twitter icon" />
