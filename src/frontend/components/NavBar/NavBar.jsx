@@ -9,11 +9,11 @@ import bookmark from "../../assets/bookmark.png"
 function NavBar() {
   return (
     <nav className={`d-flex ${NavCSS.container}`}>
-      <img src={home} alt="" />
-      <img src={bookmark} alt="" />
-      <img src={explore} alt="" />
-      <img src={user} alt="" />
-      <img src={logout} alt="" />
+      <img src={home} alt="home" />
+      <img src={bookmark} alt="bookmark" />
+      <img src={explore} alt="explore" />
+      <img src={user} alt="user" />
+      <img src={logout} alt="logout" />
     </nav>
   )
 }
