@@ -1,6 +1,5 @@
 import React from 'react'
 import CommentCSS from "./Comment.module.css"
-// import man from "../../assets/man.png"
 import { User } from '../User/User'
 
 function Comment() {
