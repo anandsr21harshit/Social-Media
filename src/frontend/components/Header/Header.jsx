@@ -19,7 +19,7 @@ function Header() {
 
   useEffect(()=>{
     if(!token){
-      navigate("/");
+      navigate("/login");
     }
   },[token])
   return (
@@ -29,7 +29,7 @@ function Header() {
         <h1 className={`nav-brand ${HeaderCSS.nav_brand}`}>Dev Junction</h1>
 
         {/* for desktop view */}
-        <ul className={HeaderCSS.desktop_menu}>
+        {token && <ul className={HeaderCSS.desktop_menu}>
           <li><Link to={"/home"}><img src={home} alt="Home" /></Link></li>
           <li> <img src={bookmark} alt="" /></li>
           <li><img src={explore} alt="" /></li>
@@ -38,7 +38,7 @@ function Header() {
             dispatch(logoutHandler())
             toast.success("Successfully Logged Out");
             }}><img src={logout} alt="" /></li>
-        </ul>
+        </ul>}
       </nav>
     </>
   );
