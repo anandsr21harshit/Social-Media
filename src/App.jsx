@@ -19,7 +19,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/home" element={<RequireAuth token={token}><Home/></RequireAuth>}/>
+        <Route path="/" element={<RequireAuth token={token}><Home/></RequireAuth>}/>
         <Route path="/profile" element={<RequireAuth token={token}><Profile/></RequireAuth>}/>
         <Route path="/mock-api" element={<MockAPI/>}/>
      </Routes>
