@@ -4,12 +4,19 @@ import ProfileCardCSS from "./ProfileCard.module.css"
 import linkedin from "../../assets/linkedin.png"
 import github from "../../assets/github.png"
 import twitter from "../../assets/twitter.png"
+import { useSelector } from 'react-redux'
 
 function ProfileCard() {
+    const {user} = useSelector(state => state.auth);
+    const {username, firstName, lastName} = user;
+
+    const {allUsers} = useSelector(state => state.users);
+    const currentUser = allUsers.find(user => user.username === username);
+
   return (
     <div className={ProfileCardCSS.container}>
         <div className={`d-flex ${ProfileCardCSS.header}`}>
-            <User/>
+            <User username={username} firstName={firstName} lastName={lastName} image={currentUser.profilePic}/>
             <span>Edit</span>
         </div>
         <article className={ProfileCardCSS.description}>
