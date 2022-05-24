@@ -12,11 +12,6 @@
     width: 3rem;
 }
 
-.container p{
-    font-weight: bold;
-    font-size: 1.25rem;
-}
-
 .header{
     align-items: center;
     justify-content: space-between;
