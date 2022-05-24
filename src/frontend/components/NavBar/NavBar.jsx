@@ -8,16 +8,17 @@ import bookmark from "../../assets/bookmark.png";
 import { useDispatch } from "react-redux";
 import { logoutHandler } from "../../features/auth/authSlice";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   const dispatch = useDispatch();
 
   return (
     <nav className={`d-flex ${NavCSS.container}`}>
-      <img src={home} alt="home" />
+      <Link to={"/"}><img src={home} alt="home" /></Link>
       <img src={bookmark} alt="bookmark" />
       <img src={explore} alt="explore" />
-      <img src={user} alt="user" />
+      <Link to={"/profile"}><img src={user} alt="user" /></Link>
       <img
         src={logout}
         alt="logout"
