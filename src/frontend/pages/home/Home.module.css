@@ -2,6 +2,7 @@
     margin: 5rem 0;
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
 }
 
 @media screen and (min-width: 31.25rem) { /*500*/
