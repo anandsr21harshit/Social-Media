@@ -9,7 +9,6 @@ function NewPost() {
   const dispatch = useDispatch();
 
   const postHandler = ()=>{
-    console.log("clicked");
     dispatch(addUserPost(postData));
     setPostData("")
   }
