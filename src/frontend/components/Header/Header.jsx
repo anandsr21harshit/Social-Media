@@ -30,7 +30,7 @@ function Header() {
 
         {/* for desktop view */}
         {token && <ul className={HeaderCSS.desktop_menu}>
-          <li><Link to={"/home"}><img src={home} alt="Home" /></Link></li>
+          <li><Link to={"/"}><img src={home} alt="Home" /></Link></li>
           <li> <img src={bookmark} alt="" /></li>
           <li><img src={explore} alt="" /></li>
           <li><Link to={"/profile"}><img src={user} alt="Profile" /></Link></li>

@@ -7,8 +7,8 @@ function Profile() {
   return (
     <div className={`d-flex ${ProfileCSS.container}`}>
         <ProfileCard/>
-        <PostCard/>
-        <PostCard/>
+        {/* <PostCard/>
+        <PostCard/> */}
     </div>
   )
 }
