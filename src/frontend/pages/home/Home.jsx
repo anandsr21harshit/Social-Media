@@ -8,11 +8,10 @@ import { getAllUsers } from '../../features/user/userSlice'
 
 function Home() {
   const {allPosts} = useSelector(state => state.posts);
-  const {allUsers} = useSelector( state => state.users);
 
   // sort allPosts date wise
   // use spread operator to stop mutation
-  const feePosts = [...allPosts].sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
+  const feedPosts = [...allPosts].sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
 
   const dispatch = useDispatch();
 
@@ -24,7 +23,7 @@ function Home() {
   return (
     <section className={`d-flex ${HomeCSS.container}`}>
         <NewPost/>
-        {feePosts.map(post => <PostCard post={post} key={post._id}/> )}
+        {feedPosts.map(post => <PostCard post={post} key={post._id}/> )}
     </section>
   )
 }
