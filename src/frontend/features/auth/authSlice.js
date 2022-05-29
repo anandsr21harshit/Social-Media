@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { loginService, signUpService } from "../../service/authServices";
 import { toast } from "react-toastify";
+import { addBookmarkService, removeBookmarkService } from "../../service/postsService";
 
 const initialState = {
   token: JSON.parse(localStorage.getItem("loginCred"))?.token,
@@ -37,6 +38,23 @@ export const signUpHandler = createAsyncThunk(
     }
   }
 );
+
+
+export const addOrRemoveBookmark = createAsyncThunk(
+  "posts/addOrRemoveBookmark",
+  async({id,isBookmarked},thunkAPI) => {
+      try{
+          const token = JSON.parse(localStorage.getItem("loginCred")).token;
+          
+          const response = isBookmarked ? await removeBookmarkService(id,token): await addBookmarkService(id,token)
+          return response.data.bookmarks;
+      }
+      catch(error){
+          console.error(error.response);
+          thunkAPI.rejectWithValue(error.response);
+      }
+  }
+)
 
 const authSlice = createSlice({
   name: "auth",
@@ -85,6 +103,9 @@ const authSlice = createSlice({
     },
     [signUpHandler.rejected]: (state) =>{
         state.isLoading = false
+    },
+    [addOrRemoveBookmark.fulfilled]: (state,action) => {
+      state.user.bookmarks = action.payload;
     }
   },
 });
