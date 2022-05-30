@@ -40,7 +40,7 @@ function PostCard({post}) {
           </ul>
         )}
       <article>{content}</article>
-      <Button />
+      <Button post={post} id={_id}/>
       <NewComment />
       {/* <Comment /> */}
     </div>

@@ -10,6 +10,8 @@ import { ToastContainer } from 'react-toastify';
 import { useSelector } from "react-redux";
 import RequireAuth from "./frontend/features/auth/RequireAuth";
 import Modal from "./frontend/components/PostCard/Modal/Modal";
+import Bookmark from "./frontend/pages/bookmark/Bookmark";
+import ScrollToTop from "./frontend/customHooks/ScrollToTop";
 
 function App() {
   const {token} = useSelector(state => state.auth);
@@ -18,8 +20,10 @@ function App() {
     <>
       <ToastContainer position="top-right" autoClose={1000}/>
       <Header/>
+      <ScrollToTop/>
       <Routes>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/bookmark" element={<RequireAuth token={token}><Bookmark/></RequireAuth>}/>
         <Route path="/" element={<RequireAuth token={token}><Home/></RequireAuth>}/>
         <Route path="/profile" element={<RequireAuth token={token}><Profile/></RequireAuth>}/>
         <Route path="/mock-api" element={<MockAPI/>}/>
