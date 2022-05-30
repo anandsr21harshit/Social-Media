@@ -1,5 +1,6 @@
+import axios from "axios"
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
-import { getAllPostsService, addPostService } from "../../service/postsService";
+import { getAllPostsService, addPostService, editPostService, deletePostService } from "../../service/postsService";
 
 export const getAllPosts = createAsyncThunk(
     "posts/getAllPosts",
@@ -30,6 +31,36 @@ export const addUserPost = createAsyncThunk(
     }
 )
 
+export const editUserPost = createAsyncThunk(
+    "posts/editUserPost",
+    async(postData, thunkAPI) => {
+        try{
+            const token = JSON.parse(localStorage.getItem("loginCred")).token;
+            const response = await editPostService(postData, token);
+
+            
+            return response.data.posts;
+        }
+        catch(err){
+            thunkAPI.rejectWithValue(err.response);
+        }
+    }
+)
+
+export const deleteUserPost = createAsyncThunk(
+    "posts/deleteUserPost",
+    async(id, thunkAPI) => {
+        try{
+            const token = JSON.parse(localStorage.getItem("loginCred")).token;
+            const response = await deletePostService(id,token);
+            return response.data.posts;
+        }
+        catch(err){
+            thunkAPI.rejectWithValue(err.response);
+        }
+    }
+)
+
 export const postSlice = createSlice({
     name:"posts",
     initialState:{
@@ -45,7 +76,24 @@ export const postSlice = createSlice({
         [getAllPosts.fulfilled]: (state,action) => {
             state.allPosts = action.payload;
         },
+        [getAllPosts.rejected]: (state,action) => {
+            state.postStatus = false;
+            state.allPosts = action.payload;
+        },
+        [addUserPost.pending]: (state, action) => {
+            state.postStatus = false;
+        },
         [addUserPost.fulfilled]: (state, action) => {
+            state.allPosts = action.payload;
+        },
+        [addUserPost.rejected]: (state, action) => {
+            state.postStatus = false
+            state.allPosts = action.payload;
+        },
+        [editUserPost.fulfilled]: (state, action) => {
+            state.allPosts = action.payload;
+        },
+        [deleteUserPost.fulfilled]: (state, action) => {
             state.allPosts = action.payload;
         }
     }

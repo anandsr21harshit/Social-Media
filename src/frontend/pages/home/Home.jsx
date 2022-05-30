@@ -24,7 +24,7 @@ function Home() {
   return (
     <section className={`d-flex ${HomeCSS.container}`}>
         <NewPost/>
-        {feePosts.map(post => <PostCard {...post} key={post._id}/> )}
+        {feePosts.map(post => <PostCard post={post} key={post._id}/> )}
     </section>
   )
 }

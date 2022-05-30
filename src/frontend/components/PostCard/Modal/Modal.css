@@ -1,0 +1,34 @@
+.modal-container-custom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--bg-dark);
+    border-radius: 0.5rem;  
+    min-width: 20rem;
+}
+
+.modal-header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.modal-header i{
+    position: absolute;
+    right: 0rem;
+    top: 0.02rem;
+}
+
+.edit-text{
+    margin: 0;
+    outline: none;
+    border: none;
+}
