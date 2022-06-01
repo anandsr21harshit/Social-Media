@@ -68,3 +68,14 @@ axios.post(
     }
   }
 )
+
+export const addCommentService = (commentData,postId, token) =>
+  axios.post(
+    `/api/comments/add/${postId}`,
+    {commentData},
+    {
+      headers: {
+        authorization: token
+      }
+    }
+  )
