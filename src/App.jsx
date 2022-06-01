@@ -12,6 +12,7 @@ import RequireAuth from "./frontend/features/auth/RequireAuth";
 import Modal from "./frontend/components/PostCard/Modal/Modal";
 import Bookmark from "./frontend/pages/bookmark/Bookmark";
 import ScrollToTop from "./frontend/customHooks/ScrollToTop";
+import Explore from "./frontend/pages/explore/Explore";
 
 function App() {
   const {token} = useSelector(state => state.auth);
@@ -23,6 +24,7 @@ function App() {
       <ScrollToTop/>
       <Routes>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/explore" element={<RequireAuth token={token}><Explore/></RequireAuth>}/>
         <Route path="/bookmark" element={<RequireAuth token={token}><Bookmark/></RequireAuth>}/>
         <Route path="/" element={<RequireAuth token={token}><Home/></RequireAuth>}/>
         <Route path="/profile" element={<RequireAuth token={token}><Profile/></RequireAuth>}/>
