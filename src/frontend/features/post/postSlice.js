@@ -1,6 +1,6 @@
 import axios from "axios"
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
-import { getAllPostsService, addPostService, editPostService, deletePostService, likePostService, dislikePostService } from "../../service/postsService";
+import { getAllPostsService, addPostService, editPostService, deletePostService, likePostService, dislikePostService, addCommentService } from "../../service/postsService";
 
 export const getAllPosts = createAsyncThunk(
     "posts/getAllPosts",
@@ -76,6 +76,22 @@ export const likeOrDislikePost = createAsyncThunk(
     }
 )
 
+export const addComment = createAsyncThunk(
+    "posts/addComment",
+    async({commentData,postId}, thunkAPI) => {
+        try{
+            const token = JSON.parse(localStorage.getItem("loginCred")).token;
+            const response = await addCommentService(commentData, postId,token);
+
+            return response.data.posts;
+        }
+        catch(err){
+            console.error(err.response);
+            thunkAPI.rejectWithValue(err.response);
+        }
+    }
+)
+
 export const postSlice = createSlice({
     name:"posts",
     initialState:{
@@ -112,6 +128,9 @@ export const postSlice = createSlice({
             state.allPosts = action.payload;
         },
         [likeOrDislikePost.fulfilled]: (state, action) => {
+            state.allPosts = action.payload;
+        },
+        [addComment.fulfilled]: (state,action) => {
             state.allPosts = action.payload;
         }
     }
