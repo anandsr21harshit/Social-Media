@@ -16,7 +16,7 @@ function ProfileCard() {
   return (
     <div className={ProfileCardCSS.container}>
         <div className={`d-flex ${ProfileCardCSS.header}`}>
-            <User username={username} firstName={firstName} lastName={lastName} image={currentUser.profilePic}/>
+            <User username={username} firstName={firstName} lastName={lastName} image={currentUser.profilePic} flag={false}/>
             <span>Edit</span>
         </div>
         <article className={ProfileCardCSS.description}>
