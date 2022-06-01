@@ -3,8 +3,9 @@
     gap: 0.5rem;
 }
 .container img{
-    width: 2rem;
-    height: auto;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 100%;
 }
 
 .username{

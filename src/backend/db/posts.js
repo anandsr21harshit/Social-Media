@@ -43,7 +43,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+      "I started learning Web Development. Wish me Luck!!",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -74,4 +74,63 @@ export const posts = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
+  {
+    _id: uuid(),
+    content:
+      "विद्या ददाति विनयम !!",
+    likes: {
+      likeCount: 3,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "hanand2021",
+
+    comments: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "Do you send memes in your office group? 😂😂",
+    likes: {
+      likeCount: 3,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "adilhossain121",
+
+    comments: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+      _id: uuid(),
+      content:
+        "Wohoooo.. Got Promoted !!",
+      likes: {
+        likeCount: 10,
+        likedBy: [],
+        dislikedBy: [],
+      },
+      username: "gupta_sunny4165",
+  
+      comments: [],
+      createdAt: formatDate(),
+      updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "We lost a gem today 😞. RIP KK",
+    likes: {
+      likeCount: 15,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "hanand2021",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comments: [],
+  }
 ];
