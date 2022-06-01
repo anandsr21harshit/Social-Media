@@ -41,8 +41,8 @@ function PostCard({post}) {
         )}
       <article>{content}</article>
       <Button post={post} id={_id}/>
-      <NewComment />
-      {/* <Comment /> */}
+      <NewComment post={post} />
+      {post.comments.map(comment => <Comment commentUser={comment} key={comment._id}/>)}
     </div>
   );
 }
