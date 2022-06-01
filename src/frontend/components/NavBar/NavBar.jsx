@@ -17,7 +17,7 @@ function NavBar() {
     <nav className={`d-flex ${NavCSS.container}`}>
       <Link to={"/"}><img src={home} alt="home" /></Link>
       <Link to={"/bookmark"}><img src={bookmark} alt="bookmark" /></Link>
-      <img src={explore} alt="explore" />
+      <Link to={"/explore"}><img src={explore} alt="explore" /></Link>
       <Link to={"/profile"}><img src={user} alt="user" /></Link>
       <img
         src={logout}
