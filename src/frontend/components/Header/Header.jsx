@@ -31,13 +31,13 @@ function Header() {
         {/* for desktop view */}
         {token && <ul className={HeaderCSS.desktop_menu}>
           <li><Link to={"/"}><img src={home} alt="Home" /></Link></li>
-          <li><Link to={"/bookmark"}><img src={bookmark} alt="" /></Link></li>
-          <li><img src={explore} alt="" /></li>
+          <li><Link to={"/bookmark"}><img src={bookmark} alt="Bookmark" /></Link></li>
+          <li><Link to={"/explore"}><img src={explore} alt="Explore" /></Link></li>
           <li><Link to={"/profile"}><img src={user} alt="Profile" /></Link></li>
           <li onClick={()=>{
             dispatch(logoutHandler())
             toast.success("Successfully Logged Out");
-            }}><img src={logout} alt="" /></li>
+            }}><img src={logout} alt="Logout" /></li>
         </ul>}
       </nav>
     </>
