@@ -51,7 +51,7 @@ export const addPostCommentHandler = function (schema, request) {
 
     const comment = {
       _id: uuid(),
-      ...commentData,
+      text:commentData,
       username: user.username,
       votes: { upvotedBy: [], downvotedBy: [] },
       createdAt: formatDate(),
@@ -106,11 +106,11 @@ export const editPostCommentHandler = function (schema, request) {
     }
     post.comments[commentIndex] = {
       ...post.comments[commentIndex],
-      ...commentData,
+      text:commentData,
       updatedAt: formatDate(),
     };
     this.db.posts.update({ _id: postId }, post);
-    return new Response(201, {}, { comments: post.comments });
+    return new Response(201, {}, { posts: this.db.posts });
   } catch (error) {
     return new Response(
       500,
@@ -160,7 +160,7 @@ export const deletePostCommentHandler = function (schema, request) {
       (comment) => comment._id !== commentId
     );
     this.db.posts.update({ _id: postId }, post);
-    return new Response(201, {}, { comments: post.comments });
+    return new Response(201, {}, { posts: this.db.posts });
   } catch (error) {
     return new Response(
       500,
