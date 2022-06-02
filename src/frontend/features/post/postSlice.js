@@ -1,6 +1,6 @@
 import axios from "axios"
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
-import { getAllPostsService, addPostService, editPostService, deletePostService, likePostService, dislikePostService, addCommentService } from "../../service/postsService";
+import { getAllPostsService, addPostService, editPostService, deletePostService, likePostService, dislikePostService, addCommentService, deleteCommentService, editCommentService } from "../../service/postsService";
 
 export const getAllPosts = createAsyncThunk(
     "posts/getAllPosts",
@@ -82,6 +82,37 @@ export const addComment = createAsyncThunk(
         try{
             const token = JSON.parse(localStorage.getItem("loginCred")).token;
             const response = await addCommentService(commentData, postId,token);
+            return response.data.posts;
+        }
+        catch(err){
+            console.error(err.response);
+            thunkAPI.rejectWithValue(err.response);
+        }
+    }
+)
+
+export const deleteComment = createAsyncThunk(
+    "posts/deleteComment",
+    async({postId,commentId},thunkAPI) => {
+        try{
+            const token = JSON.parse(localStorage.getItem("loginCred")).token;
+            const response = await deleteCommentService(postId,commentId,token);
+
+            return response.data.posts;
+        }
+        catch(err){
+            console.error(err.response);
+            thunkAPI.rejectWithValue(err.response);
+        }
+    }
+)
+
+export const editComment = createAsyncThunk(
+    "posts/editComment",
+    async({postId,commentId,commentData}, thunkAPI) => {
+        try{
+            const token = JSON.parse(localStorage.getItem("loginCred")).token;
+            const response = await editCommentService(postId,commentId,commentData,token);
 
             return response.data.posts;
         }
@@ -131,6 +162,12 @@ export const postSlice = createSlice({
             state.allPosts = action.payload;
         },
         [addComment.fulfilled]: (state,action) => {
+            state.allPosts = action.payload;
+        },
+        [deleteComment.fulfilled]: (state,action) => {
+            state.allPosts = action.payload;
+        },
+        [editComment.fulfilled]: (state,action) => {
             state.allPosts = action.payload;
         }
     }
