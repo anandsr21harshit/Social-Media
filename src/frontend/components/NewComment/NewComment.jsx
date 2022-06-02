@@ -7,13 +7,13 @@ import NewCommentCSS from "./NewComment.module.css";
 
 function NewComment({post}) {
 
-  const [commentData, setCommentData] = useState({ text: "" });
+  const [commentData, setCommentData] = useState("");
   const dispatch = useDispatch();
   const postId = post._id;
 
   const commentHandler = ()=> {
     dispatch(addComment({commentData,postId}))
-    setCommentData({text:""});
+    setCommentData("");
   }
 
   return (
@@ -23,12 +23,12 @@ function NewComment({post}) {
         <textarea
           placeholder="Write your comment"
           className={NewCommentCSS.input_area}
-          value={commentData.text}
+          value={commentData}
           onChange={(e) =>
-            setCommentData({ ...commentData, text: e.target.value })
+            setCommentData(e.target.value)
           }
         />
-        {commentData.text.length >0 && <img src={arrow} alt="Arrow" onClick={commentHandler} />}
+        {commentData.length >0 && <img src={arrow} alt="Arrow" onClick={commentHandler} />}
       </div>
     </div>
   );
