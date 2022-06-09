@@ -30,7 +30,7 @@ function PostCard({post}) {
   return (
     <div className={` d-flex ${PostCardCSS.container}`}>
       <header className={`d-flex ${PostCardCSS.header}`}>
-        <User username={username} firstName={currentUser?.firstName} lastName={currentUser?.lastName} image={currentUser?.profilePic} />
+        <User username={username} firstName={currentUser?.firstName} lastName={currentUser?.lastName} image={currentUser?.profilePic} id={currentUser?._id} />
         {username === loggedInUser.username && <i className="bi bi-three-dots-vertical" onClick={()=> setEditModal(!editModal)}></i>}
       </header>
       {editModal && (

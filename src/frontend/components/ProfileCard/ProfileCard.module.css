@@ -33,10 +33,11 @@
     font-weight: 600;
 }
 
-.container a{
-    margin: 1rem 0;
-    display: inline-flex;
+.social_media {
+    display: flex;
     gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
 }
 
 .social_media img{
