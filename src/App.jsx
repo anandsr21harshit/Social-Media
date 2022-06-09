@@ -13,6 +13,7 @@ import Modal from "./frontend/components/PostCard/Modal/Modal";
 import Bookmark from "./frontend/pages/bookmark/Bookmark";
 import ScrollToTop from "./frontend/customHooks/ScrollToTop";
 import Explore from "./frontend/pages/explore/Explore";
+import UserProfile from "./frontend/pages/user-profile/UserProfile";
 
 function App() {
   const {token} = useSelector(state => state.auth);
@@ -28,6 +29,7 @@ function App() {
         <Route path="/bookmark" element={<RequireAuth token={token}><Bookmark/></RequireAuth>}/>
         <Route path="/" element={<RequireAuth token={token}><Home/></RequireAuth>}/>
         <Route path="/profile" element={<RequireAuth token={token}><Profile/></RequireAuth>}/>
+        <Route path="/user-profile/:username" element={<RequireAuth token={token}><UserProfile/></RequireAuth>}/>
         <Route path="/mock-api" element={<MockAPI/>}/>
      </Routes>
      <NavBar/>
