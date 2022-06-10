@@ -5,6 +5,7 @@ import HomeCSS from "./Home.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts } from "../../features/post/postSlice";
 import { getAllUsers } from "../../features/user/userSlice";
+import FollowCard from "../../components/Follow/FollowCard";
 
 function Home() {
   const { allPosts } = useSelector((state) => state.posts);
@@ -33,6 +34,7 @@ function Home() {
   return (
     <section className={`d-flex ${HomeCSS.container}`}>
       <NewPost />
+      <FollowCard/>
       {feedPosts.map((post) => (
         <PostCard post={post} key={post._id} />
       ))}

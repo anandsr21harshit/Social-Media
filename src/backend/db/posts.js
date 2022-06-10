@@ -31,7 +31,7 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "gupta_sunny4165",
+        username: "chauhan_sahil4165",
         text: "Wow! Good going Harshit. Keep hustling 🤩",
         votes: {
           upvotedBy: [],
@@ -104,7 +104,7 @@ export const posts = [
         likedBy: [],
         dislikedBy: [],
       },
-      username: "gupta_sunny4165",
+      username: "chauhan_sahil4165",
   
       comments: [],
       createdAt: formatDate(),
@@ -133,7 +133,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "sagar1705",
+    username: "nkumar2128",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     comments: [

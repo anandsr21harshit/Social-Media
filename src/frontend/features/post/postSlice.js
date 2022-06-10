@@ -1,4 +1,3 @@
-import axios from "axios"
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 import { getAllPostsService, addPostService, editPostService, deletePostService, likePostService, dislikePostService, addCommentService, deleteCommentService, editCommentService } from "../../service/postsService";
 
@@ -81,7 +80,7 @@ export const addComment = createAsyncThunk(
     async({commentData,postId}, thunkAPI) => {
         try{
             const token = JSON.parse(localStorage.getItem("loginCred")).token;
-            const response = await addCommentService(commentData, postId,token);
+            const response = await addCommentService(commentData, postId,token);    
             return response.data.posts;
         }
         catch(err){

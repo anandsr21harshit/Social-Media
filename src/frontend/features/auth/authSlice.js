@@ -1,7 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { loginService, signUpService } from "../../service/authServices";
 import { toast } from "react-toastify";
-import { addBookmarkService, removeBookmarkService } from "../../service/postsService";
+import {
+  addBookmarkService,
+  removeBookmarkService,
+} from "../../service/postsService";
+import { updateUserService } from "../../service/userService";
 
 const initialState = {
   token: JSON.parse(localStorage.getItem("loginCred"))?.token,
@@ -16,7 +20,7 @@ export const loginHandler = createAsyncThunk(
       const response = await loginService({ username, password });
       return response.data;
     } catch (err) {
-      toast.error("Incorrect Username or Password")
+      toast.error("Incorrect Username or Password");
       thunkAPI.rejectWithValue(err.response);
     }
   }
@@ -39,22 +43,36 @@ export const signUpHandler = createAsyncThunk(
   }
 );
 
-
 export const addOrRemoveBookmark = createAsyncThunk(
-  "posts/addOrRemoveBookmark",
-  async({id,isBookmarked},thunkAPI) => {
-      try{
-          const token = JSON.parse(localStorage.getItem("loginCred")).token;
-          
-          const response = isBookmarked ? await removeBookmarkService(id,token): await addBookmarkService(id,token)
-          return response.data.bookmarks;
-      }
-      catch(error){
-          console.error(error.response);
-          thunkAPI.rejectWithValue(error.response);
-      }
+  "auth/addOrRemoveBookmark",
+  async ({ id, isBookmarked }, thunkAPI) => {
+    try {
+      const token = JSON.parse(localStorage.getItem("loginCred")).token;
+
+      const response = isBookmarked
+        ? await removeBookmarkService(id, token)
+        : await addBookmarkService(id, token);
+      return response.data.bookmarks;
+    } catch (error) {
+      console.error(error.response);
+      thunkAPI.rejectWithValue(error.response);
+    }
   }
-)
+);
+
+export const updateUserProfile = createAsyncThunk(
+  "auth/updateUserProfile",
+  async (userData, thunkAPI) => {
+    try {
+      const token = JSON.parse(localStorage.getItem("loginCred")).token;
+      const response = await updateUserService(userData, token);
+      return response.data.user;
+    } catch (err) {
+      console.error(err.response);
+      thunkAPI.rejectWithValue(err.response);
+    }
+  }
+);
 
 const authSlice = createSlice({
   name: "auth",
@@ -86,32 +104,35 @@ const authSlice = createSlice({
     [loginHandler.rejected]: (state) => {
       state.isLoading = false;
     },
-    [signUpHandler.pending]: state => {
-        state.isLoading = true;
+    [signUpHandler.pending]: (state) => {
+      state.isLoading = true;
     },
-    [signUpHandler.fulfilled]: (state,action) =>{
-        state.isLoading = false;
-        state.token = action.payload.encodedToken;
-        state.user = action.payload.createdUser
-        localStorage.setItem(
-            "loginCred",
-            JSON.stringify({
-                token: action.payload.encodedToken,
-                user: action.payload.createdUser
-            })
-        )
+    [signUpHandler.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.token = action.payload.encodedToken;
+      state.user = action.payload.createdUser;
+      localStorage.setItem(
+        "loginCred",
+        JSON.stringify({
+          token: action.payload.encodedToken,
+          user: action.payload.createdUser,
+        })
+      );
     },
-    [signUpHandler.rejected]: (state) =>{
-        state.isLoading = false
+    [signUpHandler.rejected]: (state) => {
+      state.isLoading = false;
     },
-    [addOrRemoveBookmark.fulfilled]: (state,action) => {
+    [addOrRemoveBookmark.fulfilled]: (state, action) => {
       state.user.bookmarks = action.payload;
-    }
+    },
+    [updateUserProfile.fulfilled]: (state, action) => {
+      state.user = action.payload;
+    },
   },
 });
 
 // export all actions to use in diff files
-export const {logoutHandler} = authSlice.actions
+export const { logoutHandler } = authSlice.actions;
 
 // export the reducer
-export default authSlice.reducer
+export default authSlice.reducer;
