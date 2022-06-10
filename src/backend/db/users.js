@@ -45,5 +45,15 @@ export const users = [
       profilePic: "https://res.cloudinary.com/mranand/image/upload/v1653979559/mypics/IMG_20220531_121424_qdwg2d.jpg",
       createdAt: formatDate(),
       updatedAt: formatDate(),
+    },
+    {
+      _id: uuid(),
+      firstName: "Ramanand",
+      lastName: "Sagar",
+      username: "sagar1705",
+      password: "awsdk@1234",
+      profilePic: "https://res.cloudinary.com/mranand/image/upload/v1654162581/mypics/3006876_pa2q6s.png",
+      createdAt: formatDate(),
+      updatedAt: formatDate(),
     }
 ];

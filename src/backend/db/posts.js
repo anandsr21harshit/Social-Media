@@ -22,7 +22,7 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        username: "shubhamsoni",
+        username: "adilhossain121",
         text: "Interesting",
         votes: {
           upvotedBy: [],
@@ -31,8 +31,8 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "sohamshah",
-        text: "Wow!",
+        username: "gupta_sunny4165",
+        text: "Wow! Good going Harshit. Keep hustling 🤩",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -54,22 +54,13 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        username: "shubhamsoni",
-        text: "Interesting",
+        username: "hanand2021",
+        text: "All the best subham!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
         },
-      },
-      {
-        _id: uuid(),
-        username: "sohamshah",
-        text: "Wow!",
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-      },
+      }
     ],
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -132,5 +123,29 @@ export const posts = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     comments: [],
+  },
+  {
+    _id: uuid(),
+    content:
+      "Tere haathon se dil ka tootna aisa tha, ki jaisa phool kisi ko chubh gaya ho",
+    likes: {
+      likeCount: 25,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "sagar1705",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: "adilhossain121",
+        text: "Are bhai bhai 💥💥",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        }
+      },
+    ]
   }
 ];
